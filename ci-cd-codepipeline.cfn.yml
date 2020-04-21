@@ -9,18 +9,18 @@ Parameters:
   EksClusterName:
     Type: String
     Description: The name of the EKS cluster created
-    Default: 
+    Default: simple-jwt-api
     MinLength: 1
     MaxLength: 100
-    ConstraintDescription: You must enter the EKS cluster name
+    ConstraintDescription: simple-jwt-api
 
   GitSourceRepo:
     Type: String
     Description: GitHub source repository - must contain a Dockerfile and buildspec.yml in the base
-    Default: 
+    Default: EKS-Udacity
     MinLength: 1
     MaxLength: 100
-    ConstraintDescription: You must enter a GitHub repository name
+    ConstraintDescription: EKS-Udacity
 
   GitBranch:
     Type: String
@@ -33,18 +33,19 @@ Parameters:
   GitHubToken:
     Type: String
     NoEcho: true
+    Default: b1ffcdf0a047e71a8143421b7957562d698855e2
     Description: GitHub API token - see https://github.com/blog/1509-personal-api-tokens
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: You must enter a GitHub personal access token
+    ConstraintDescription: b1ffcdf0a047e71a8143421b7957562d698855e2
 
   GitHubUser:
     Type: String
-    Default:
-    Description: GitHub username or organization
+    Default: awaisrauf
+    Description: awaisrauf
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: You must enter a GitHub username or organization
+    ConstraintDescription: awaisrauf
 
   CodeBuildDockerImage:
     Type: String
@@ -56,11 +57,11 @@ Parameters:
 
   KubectlRoleName:
     Type: String
-    Default: 
+    Default: UdacityFlaskDeployCBKubectlRole
     Description: IAM role used by kubectl to interact with EKS cluster
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: You must enter a kubectl IAM role
+    ConstraintDescription: UdacityFlaskDeployCBKubectlRole
 
 
 Metadata:
@@ -87,19 +88,19 @@ Metadata:
           - EksClusterName
     ParameterLabels:
       GitHubUser:
-        default: Username
+        default: awaisrauf
       GitHubToken:
-        default: Access token
+        default: b1ffcdf0a047e71a8143421b7957562d698855e2
       GitSourceRepo:
-        default: Repository
+        default: EKS-Udacity
       GitBranch:
-        default: Branch
+        default: master
       CodeBuildDockerImage:
         default: Docker image
       KubectlRoleName:
-        default: kubectl IAM role
+        default: UdacityFlaskDeployCBKubectlRole
       EksClusterName:
-        default: EKS cluster name
+        default: simple-jwt-api
 
 
 Resources:
