@@ -9,10 +9,10 @@ Parameters:
   EksClusterName:
     Type: String
     Description: The name of the EKS cluster created
-    Default: simple-jwt-api
+    Default: simple-jws-api
     MinLength: 1
     MaxLength: 100
-    ConstraintDescription: simple-jwt-api
+    ConstraintDescription: You must enter the EKS cluster name
 
   GitSourceRepo:
     Type: String
@@ -20,7 +20,7 @@ Parameters:
     Default: EKS-Udacity
     MinLength: 1
     MaxLength: 100
-    ConstraintDescription: EKS-Udacity
+    ConstraintDescription: You must enter a GitHub repository name
 
   GitBranch:
     Type: String
@@ -33,19 +33,18 @@ Parameters:
   GitHubToken:
     Type: String
     NoEcho: true
-    Default: b1ffcdf0a047e71a8143421b7957562d698855e2
     Description: GitHub API token - see https://github.com/blog/1509-personal-api-tokens
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: b1ffcdf0a047e71a8143421b7957562d698855e2
+    ConstraintDescription: You must enter a GitHub personal access token
 
   GitHubUser:
     Type: String
     Default: awaisrauf
-    Description: awaisrauf
+    Description: GitHub username or organization
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: awaisrauf
+    ConstraintDescription: You must enter a GitHub username or organization
 
   CodeBuildDockerImage:
     Type: String
@@ -61,7 +60,7 @@ Parameters:
     Description: IAM role used by kubectl to interact with EKS cluster
     MinLength: 3
     MaxLength: 100
-    ConstraintDescription: UdacityFlaskDeployCBKubectlRole
+    ConstraintDescription: You must enter a kubectl IAM role
 
 
 Metadata:
@@ -88,19 +87,19 @@ Metadata:
           - EksClusterName
     ParameterLabels:
       GitHubUser:
-        default: awaisrauf
+        default: Username
       GitHubToken:
-        default: b1ffcdf0a047e71a8143421b7957562d698855e2
+        default: Access token
       GitSourceRepo:
-        default: EKS-Udacity
+        default: Repository
       GitBranch:
-        default: master
+        default: Branch
       CodeBuildDockerImage:
         default: Docker image
       KubectlRoleName:
-        default: UdacityFlaskDeployCBKubectlRole
+        default: kubectl IAM role
       EksClusterName:
-        default: simple-jwt-api
+        default: EKS cluster name
 
 
 Resources:
