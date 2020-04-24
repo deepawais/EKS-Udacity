@@ -1,3 +1,3 @@
-FROM  debian:jessie-slim
+FROM  jessie-slim 
 
 ENTRYPOINT ["echo", "hello world"]
